@@ -14,7 +14,7 @@ public class JokesViewerActivity extends AppCompatActivity {
 
         if (getIntent() != null) {
             String joke = getIntent().getStringExtra("joke");
-            TextView jokeText = findViewById(R.id.joke_display_textView);
+            TextView jokeText = findViewById(R.id.joke_tv);
             jokeText.setText(joke);
         }
     }
