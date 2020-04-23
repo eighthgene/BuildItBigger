@@ -3,6 +3,7 @@ package com.udacity.gradle.builditbigger;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.util.Log;
 
 import com.eighthbit.jokesviewer.JokesViewerActivity;
 import com.google.api.client.extensions.android.http.AndroidHttp;
@@ -15,6 +16,7 @@ import java.io.IOException;
 
 public class EndpointsAsyncTask extends AsyncTask<Void, Void, String> {
 
+    private static final String TAG = EndpointsAsyncTask.class.getSimpleName();
     private static MyApi myApi = null;
     private Context context;
 
@@ -46,7 +48,8 @@ public class EndpointsAsyncTask extends AsyncTask<Void, Void, String> {
             return myApi.getJoke().execute().getData();
             //return myApi.sayHi("test").execute().getData();
         } catch (IOException e) {
-            return e.getMessage();
+            Log.d(TAG, "doInBackground IOException" + e.getMessage());
+            return "";
         }
     }
 
